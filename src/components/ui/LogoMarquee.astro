@@ -1,0 +1,120 @@
+---
+import { Image } from "astro:assets";
+
+interface Logo {
+    src: ImageMetadata; // clave para astro:assets
+    alt: string;
+}
+
+interface Props {
+    speed?: number;
+    pauseOnHover?: boolean;
+    fade?: boolean;
+    class?: string;
+}
+
+const {
+    speed = 25,
+    pauseOnHover = true,
+    fade = true,
+    class: className = "",
+} = Astro.props;
+
+import Airfrance from "@/assets/airfrance-logo.png";
+import Delta from "@/assets/delta-logo.png";
+import Jetblue from "@/assets/jetblue-logo.png";
+import KLM from "@/assets/klm-logo.png";
+import LatamAir from "@/assets/latam-airlines-logo.png";
+import LatamCargo from "@/assets/latam-cargo-logo.png";
+import Travelport from "@/assets/travelport-logo.png";
+
+const logos: Logo[] = [
+    { 
+        src: Airfrance, 
+        alt: "Airfrance Logo" 
+    },
+    { 
+        src: Delta, 
+        alt: "Delta Logo" 
+    },
+    { 
+        src: Jetblue, 
+        alt: "Jetblue Logo" 
+    },
+    { 
+        src: KLM, 
+        alt: "KLM Logo" 
+    },
+    { 
+        src: LatamAir, 
+        alt: "Latam Airlines Logo" 
+    },
+    { 
+        src: LatamCargo, 
+        alt: "Latam Cargo Logo" 
+    },
+    { 
+        src: Travelport, 
+        alt: "Travelport Logo"
+    }
+];
+---
+
+<div class={`relative overflow-hidden ${ className }`}>
+
+    {/* Fade lateral */}
+    { fade && (
+        <>
+            <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-24 md:w-32 bg-linear-to-r from-white dark:from-black to-transparent"></div>
+            <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-24 md:w-32 bg-linear-to-l from-white dark:from-black to-transparent"></div>
+        </>
+    ) }
+
+    {/* Track */}
+    <div
+        class={`flex w-max gap-8 sm:gap-12 md:gap-16 animate-marquee ${ pauseOnHover ? "hover:[animation-play-state:paused]" : "" }`}
+        style={`animation-duration: ${speed}s`}
+    >
+
+        {/* Primera pasada */}
+        { logos.map(( logo ) => (
+            <Image
+                src={ logo.src }
+                alt={ logo.alt }
+                class="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain opacity-70 hover:opacity-100 transition duration-300"
+                loading="lazy"
+                quality={ 80 }
+            />
+        ))}
+
+        {/* Duplicado */}
+        { logos.map((logo) => (
+            <Image
+                src={ logo.src }
+                alt=""
+                aria-hidden="true"
+                class="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain opacity-70"
+                loading="lazy"
+                quality={ 80 }
+            />
+        )) }
+
+    </div>
+</div>
+
+<style>
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-marquee {
+        animation-name: marquee;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+</style>

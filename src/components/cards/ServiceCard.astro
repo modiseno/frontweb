@@ -1,0 +1,30 @@
+---
+import type { Service } from '@/interfaces/services.interface';
+import { Image } from 'astro:assets';
+
+interface Props {
+    servicio: Service;
+}
+
+const { servicio } = Astro.props;
+---
+
+<article class="border border-gray-200 p-2 bg-white rounded-lg relative hover:-translate-y-1 hover:bg-gray-100 transition-all">
+    <figure class="w-full aspect-video bg-gray-400 rounded-lg mb-4 overflow-hidden">
+        <Image
+            transition:name={ `${ servicio.name }-image` }
+            src={`/src/assets/${ servicio.feat_image }`}
+            alt={ servicio.name }
+            width={ 600 }
+            height={ 338 }
+            class="w-full h-auto object-cover"
+        />
+    </figure>
+    <div class="px-6 pb-6">
+        <h3 class="font-bold text-xl md:text-2xl mb-4">{ servicio.name }</h3>
+        <p class="font-light text-lg md:text-xl">{ servicio.description }</p>
+    </div>
+    <a href={`/servicios/${ servicio.slug }`} class="absolute h-full w-full top-0 left-0">
+        <span class="opacity-0">ver { servicio.name }</span>
+    </a>
+</article>

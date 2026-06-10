@@ -1,0 +1,151 @@
+[
+    {
+        "id": 1,
+        "cliente": "Delta",
+        "category": "",
+        "title": "Bodegas LATAM AIrlines",
+        "slug": "bodegas-latam-airlines",
+        "excerpt": "Remodelación y adecuación de oficinas principales en el Aeropuerto El Dorado Bogotá.",
+        "anio": 2025,
+        "lugar": "Aeropuerto El Dorado",
+        "ciudad": "Bogotá",
+        "area": 155,
+        "duracion": "1 mes",
+        "objetivo": "Optimizar el espacio de oficinas para el área operativa de personal de lado tierra y lado aire, haciendo una circulación interna en el espacio de las dos oficinas. Se procede a abrir un paso entre las dos oficinas mejorando los recursos y tiempos.",
+        "problema": "Unificar espacios de dos oficinas y optimizar puestos de trabajo para personal de lado tierra y lado aire.",
+        "condiciones": "Espacio activo con personal 24/7, trabajo nocturno y supervisión constante de OPAIN. El reto consistía en poder construir y adecuar pero al mismo tiempo el personal debía trabajar y encontrar sus espacios de operación activa.",
+        "enfoque": "Delta Airlines requería la adecuación de sus oficinas operativas dentro del Aeropuerto El Dorado, garantizando continuidad en la operación logística, cumplimiento de normas aeroportuarias y tiempos de ejecución estrictos.",
+        "solucion": [
+            "Desde la puesta en marcha se realizan planos y se llevan ante Delta AirLines para su aprobación y posteriormente se entregan a OPAIN para darle viabilidad al proyecto. En el transcurso de los siguientes 4 meses mientras OPAIN aprueba, se van solucionando temas constructivos y compras de materiales así como manufactura de mobiliario.",
+            "Dado que el tiempo de ejecución es muy corto, debemos tener un cronograma muy ajustado y todo tiene que seguir un camino secuencial para su desarrollo.",
+            "La coordinación y comunicación entre el cliente, el aeropuerto, las autoridades competentes y nosotros es constante y eso hace que todo el proyecto se desarrolle de manera fluida. Dichos escenarios se calculan para no tener retrasos en un tiempo de +- 30 días donde todas las especialidades deben trabajar coordinadamente.",
+            "MO Diseño y Arquitectura siempre está presente y gestiona cada uno de los permisos ante OPAIN y las autoridades aeroportuarias."
+        ],
+        "alcance": {
+            "objetivo": "Integrar las especialidades (pisos, techos, iluminación, RCI + Detección, Mobiliarios, sistema liviano DryWall y Superboard, Aislamiento térmico, vidrios, señalización y Bomberos, Potencia voz y Datos) en una obra de 30 días o menos.",
+            "bullets": [
+                "Construcción y adecuación de áreas operativas.",
+                "Obras civiles y estructurales.",
+                "Instalación de pisos de alto tráfico.",
+                "Suministro e instalación de mobiliario nuevo a medida del cliente.",
+                "Instalaciones eléctricas y de voz/datos con Certificaciones Retie.",
+                "Instalaciones y reubicaciones de Sistema RCI y Detección Aeroportuario certificado.",
+                "Acabados industriales de alto tráfico.",
+                "Coordinación de seguridad y protocolos aeroportuarios."
+            ]
+        },
+        "feat_image": "bodegas-latam-airlines.jpg",
+        "gallery": [
+            "bodegas-latam-airlines-1.jpg",
+            "bodegas-latam-airlines-2.jpg",
+            "bodegas-latam-airlines-3.jpg",
+            "bodegas-latam-airlines-4.jpg",
+            "bodegas-latam-airlines-5.jpg",
+            "bodegas-latam-airlines-6.jpg",
+            "bodegas-latam-airlines-7.jpg",
+            "bodegas-latam-airlines-8.jpg",
+            "bodegas-latam-airlines-9.jpg",
+            "bodegas-latam-airlines-10.jpg",
+            "bodegas-latam-airlines-11.jpg",
+            "bodegas-latam-airlines-12.jpg",
+            "bodegas-latam-airlines-13.jpg",
+            "bodegas-latam-airlines-14.jpg"
+        ]
+    },
+    {
+        "id": 2,
+        "cliente": "Delta",
+        "category": "",
+        "title": "Back Office Delta AirLines",
+        "slug": "back-office-delta-airlines",
+        "excerpt": "Adecuación de oficinas en el Aeropuerto Rafael Núñez Cartagena.",
+        "anio": 2023,
+        "lugar": "Aeropuerto Rafael Núñez",
+        "ciudad": "Cartagena",
+        "area": 60,
+        "duracion": "1.5 meses",
+        "objetivo": "Crear el espacio nuevo de oficinas para el área operativa de personal de lado tierra y lado aire, haciendo una circulación óptima para el personal de la aerolínea.",
+        "problema": "Adecuar una oficina nueva optimizando puestos de trabajo para personal de lado tierra y lado aire.",
+        "condiciones": " Espacio nuevo vacío y sin uso con permiso de trabajo 24 horas.",
+        "enfoque": "Delta Airlines requería la adecuación de sus nuevas oficinas operativas dentro del Aeropuerto Rafael Núñez CTG, garantizando el cumplimiento de normas aeroportuarias y tiempos de ejecución estrictos.",
+        "solucion": [
+            "Desde la puesta en marcha se realizan planos y se llevan ante Delta AirLines para su aprobación y posteriormente se entregan al Operador del Aeropuerto, TALMA, para darle viabilidad al proyecto. En el transcurso de los siguientes 2 meses mientras TALMA aprueba, se van solucionando temas constructivos y compras de materiales así como manufactura de mobiliario.",
+            "Dado que el tiempo de ejecución es muy corto, debemos tener un cronograma muy ajustado y todo tiene que seguir un camino secuencial para su desarrollo.",
+            "La coordinación y comunicación entre el cliente, el aeropuerto, las autoridades competentes y nosotros es constante y eso hace que todo el proyecto se desarrolle de manera fluida. Dichos escenarios se calculan para no tener retrasos en un tiempo de +- 30 días donde todas las especialidades deben trabajar coordinadamente.",
+            "MO Diseño y Arquitectura siempre está presente y gestiona cada uno de los permisos ante OPAIN y las autoridades aeroportuarias."
+        ],
+        "alcance": {
+            "objetivo": "Integrar las especialidades (pisos, techos, iluminación, RCI + Detección, Mobiliarios, sistema liviano DryWall y Superboard, Aislamiento térmico, vidrios, señalización y Bomberos, Potencia voz y Datos, Rack de Comunicaciones e Interconección) en una obra de 30 días o menos.",
+            "bullets": [
+                "Construcción y adecuación de áreas operativas.",
+                "Obras civiles y estructurales.",
+                "Instalación de pisos de alto tráfico.",
+                "Suministro e instalación de mobiliario nuevo a medida del cliente.",
+                "Instalaciones eléctricas y de voz/datos con Certificaciones Retie.",
+                "Instalación de Rack de comunicaciones.",
+                "Instalaciones y reubicaciones de Sistema RCI y Detección Aeroportuario certificado.",
+                "Acabados industriales de alto tráfico.",
+                "Coordinación de seguridad y protocolos aeroportuarios."
+            ]
+        },
+        "feat_image": "back-office-delta-airlines.jpg",
+        "gallery": [
+            "back-office-delta-airlines-1.jpg",
+            "back-office-delta-airlines-2.jpg",
+            "back-office-delta-airlines-3.jpg",
+            "back-office-delta-airlines-4.jpg",
+            "back-office-delta-airlines-5.jpg",
+            "back-office-delta-airlines-6.jpg",
+            "back-office-delta-airlines-7.jpg",
+            "back-office-delta-airlines-8.jpg",
+            "back-office-delta-airlines-9.jpg",
+            "back-office-delta-airlines-10.jpg",
+            "back-office-delta-airlines-11.jpg",
+            "back-office-delta-airlines-12.jpg",
+            "back-office-delta-airlines-13.jpg"
+        ]
+    },
+    {
+        "id": 3,
+        "cliente": "Tangaré",
+        "category": "",
+        "title": "Puntos de Anclaje de Seguridad",
+        "slug": "puntos-de-anclaje-de-seguridad",
+        "excerpt": "Instalación de puntos de anclaje a nivel piso.",
+        "anio": 2025,
+        "lugar": "Parque Tangaré",
+        "ciudad": "Bogotá",
+        "area": 2500,
+        "duracion": "5 días",
+        "objetivo": "Instalar los puntos de anclaje necesarios en 12 torres para el posterior cambio de cubiertas de los edificios y dar seguridad a las personas de futuros proyectos.",
+        "problema": " Instalar puntos de anclaje para seguridad del personal de futuros proyectos en cubierta.",
+        "condiciones": " Instalación a nivel piso +2.50m.",
+        "enfoque": "El conjunto necesitaba poder darle seguridad a los trabajadores en el futuro para mantenimiento, cambio y refacciones en la cubierta de las 12 torres. Se instalan puntos de anclaje y se certifican según norma para cumplir con todos los requisitos.",
+        "solucion": [
+            "Desde la puesta en marcha del proyecto, se realizan planos y se llevan ante el Conjunto Parque tangaré para su aprobación y posteriormente se entregan al instalador, para darle viabilidad al proyecto. En el transcurso de los siguientes 15 días, se realizan acciones de validación de normatividad y se escogen los materiales acordes para el proyecto, presentándolos ante el cliente y se recibe autorización para proceder.",
+            "Dado que el tiempo de ejecución es muy corto, debemos tener un cronograma muy ajustado y todo tiene que seguir un camino secuencial para su desarrollo pues no se pueden interrumpir las vías y corredores naturales del conjunto.",
+            "La coordinación y comunicación entre el cliente y nosotros es constante y eso hace que todo el proyecto se desarrolle de manera fluida. Dichos escenarios se calculan para no tener retrasos en un tiempo de +- 5 días donde se debe trabajar coordinadamente.",
+            "MO Diseño y Arquitectura siempre está presente y gestiona cada una de las inquietudes del cliente y de los residentes, asegurando la tranquilidad y el buen ejercicio del proyecto."
+        ],
+        "alcance": {
+            "objetivo": "Integrar las especialidades (instalación y certificación) de puntos de anclaje en una obra de 5 días o menos.",
+            "bullets": [
+                "Suministro e Instalación de puntos de anclaje.",
+                "Certificación según norma de puntos de anclaje.",
+                "Coordinación de seguridad y protocolos."
+            ]
+        },
+        "feat_image": "puntos-de-anclaje-de-seguridad.jpg",
+        "gallery": [
+            "puntos-de-anclaje-de-seguridad-1.jpg",
+            "puntos-de-anclaje-de-seguridad-2.jpg",
+            "puntos-de-anclaje-de-seguridad-3.jpg",
+            "puntos-de-anclaje-de-seguridad-4.jpg",
+            "puntos-de-anclaje-de-seguridad-5.jpg",
+            "puntos-de-anclaje-de-seguridad-6.jpg",
+            "puntos-de-anclaje-de-seguridad-7.jpg",
+            "puntos-de-anclaje-de-seguridad-8.jpg",
+            "puntos-de-anclaje-de-seguridad-9.jpg"
+        ]
+    }
+]

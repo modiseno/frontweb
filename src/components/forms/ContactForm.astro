@@ -1,0 +1,55 @@
+---
+interface Props {
+    endpoint?: string;
+    class?: string;
+}
+
+const { endpoint = "/api/contact", class: className } = Astro.props;
+---
+
+<form
+    method="POST"
+    action={endpoint}
+    class:list={["grid grid-cols-1 md:grid-cols-2 gap-8 w-full", className]}
+>
+    <input
+        type="text"
+        name="nombre"
+        placeholder="Nombre"
+        required
+        class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full md:col-span-1"
+    />
+    <input
+        type="text"
+        name="apellido"
+        placeholder="Apellido"
+        required
+        class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full md:col-span-1"
+    />
+    <input
+        type="tel"
+        name="telefono"
+        placeholder="Teléfono"
+        required
+        class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full"
+    />
+    <input
+        type="email"
+        name="email"
+        placeholder="Correo electrónico"
+        required
+        class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full"
+    />
+    <textarea
+        name="mensaje"
+        placeholder="Mensaje"
+        required
+        class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full min-h-35 md:col-span-2"
+    ></textarea>
+    <button
+        type="submit"
+        class="btn bg-(--color-1) text-xl md:col-span-2 cursor-pointer"
+    >
+        Enviar solicitud de asesoría técnica
+    </button>
+</form>

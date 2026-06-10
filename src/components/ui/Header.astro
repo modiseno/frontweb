@@ -1,0 +1,92 @@
+---
+import Logo from "@/assets/logo.svg";
+import Icon from "@/assets/logo-icon.svg";
+import BTNWhatsapp from "../botones/BTNWhatsapp.astro";
+
+const pathname = Astro.url.pathname;
+
+const BarNav = [
+    {
+        anchorText: "Servicios",
+        url: "/servicios"
+    },
+    {
+        anchorText: "Energía solar",
+        url: "/energia-solar"
+    },
+    {
+        anchorText: "Obras realizadas",
+        url: "/obras-realizadas"
+    },
+    {
+        anchorText: "Nosotros",
+        url: "/nosotros"
+    },
+    {
+        anchorText: "Contacto",
+        url: "/contacto"
+    }
+];
+
+---
+<header class="p-4 md:px-8 md:py-8 flex flex-row justify-between items-center fixed top-0 w-full bg-white z-20">
+    <a href="/">
+        <Logo class="h-10 w-auto hidden lg:block" />
+        <Icon class="h-10 w-auto lg:hidden" />
+    </a>
+    <nav class="flex flex-row justify-end lg:justify-center items-center flex-1 pr-4 lg:pr-0">
+        <!-- Button 1 -->
+        <button 
+            class="group inline-flex lg:hidden w-12 h-12 text-slate-800 bg-(--color-1) text-center items-center justify-center rounded shadow-[0_1px_0_--theme(--color-slate-950/.04),0_1px_2px_--theme(--color-slate-950/.12),inset_0_-2px_0_--theme(--color-slate-950/.04)] hover:shadow-[0_1px_0_--theme(--color-slate-950/.04),0_4px_8px_--theme(--color-slate-950/.12),inset_0_-2px_0_--theme(--color-slate-950/.04)] transition" aria-pressed="false" 
+            onclick="
+                var m = this.nextElementSibling;
+                var o = this.getAttribute( 'aria-pressed' )==='true';
+                this.setAttribute( 'aria-pressed',o?'false':'true' );
+                m.classList.toggle( 'hidden' );m.classList.toggle( 'flex' );
+            "
+        >
+            <span class="sr-only">Menu</span>
+            <svg class="w-6 h-6 fill-current pointer-events-none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <rect class="origin-center -translate-y-1.25 translate-x-1.75 transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-x-0 group-aria-pressed:translate-y-0 group-aria-pressed:rotate-315" y="7" width="9" height="2" rx="1"></rect>
+                <rect class="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-aria-pressed:rotate-45" y="7" width="16" height="2" rx="1"></rect>
+                <rect class="origin-center translate-y-1.25 transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:rotate-135" y="7" width="9" height="2" rx="1"></rect>
+            </svg>
+        </button>
+        <ul class:list={[
+            "hidden lg:flex flex-col justify-center items-center bg-(--color-1)/50 backdrop-blur-xl lg:bg-transparent lg:backdrop-blur-none lg:flex-row fixed z-50 lg:static top-27.75 left-0 h-[calc(100vh-111px)] w-full lg:h-auto lg:w-auto gap-4"
+        ]}>
+            {
+                BarNav.map( link => {
+                    
+                    const isActive = link.url === "/" ? pathname === "/" : pathname.startsWith( link.url );
+                    
+                    return (
+                        <li>
+                            <a 
+                                href={ link.url }
+                                class:list={[
+                                    "text-2xl lg:text-lg px-3 py-1.5 block transition-colors relative hover:bg-(--color-3) rounded-lg",
+                                    isActive ? "font-medium" : "font-light"
+                                ]}
+                            >
+                                {
+                                    isActive && (
+                                        <span 
+                                            transition:name="active-link"
+                                            class="absolute inset-0 rounded-lg bg-(--color-1)"
+                                        />
+                                )}{""}
+                                    
+                                <span class="relative">{ link.anchorText }</span>
+                            </a>
+                        </li>
+                    )
+                } )
+            }
+            
+        </ul>
+    </nav>
+    <BTNWhatsapp 
+        anchor="¡Hablemos!"
+    />
+</header>

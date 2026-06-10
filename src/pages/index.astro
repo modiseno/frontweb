@@ -1,11 +1,258 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+export const prerender = true;
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import type { Service } from '@/interfaces/services.interface';
+import BTNWhatsapp from '@/components/botones/BTNWhatsapp.astro';
+import LogoMarquee from '@/components/ui/LogoMarquee.astro';
+import Layout from '@/layouts/Layout.astro';
+
+import BTN from '@/components/botones/BTN.astro';
+
+import Services from "@/data/servicios.json";
+import Experience from "@/data/experiencia.json";
+import type { Experiencia } from '@/interfaces/experience.interface';
+
+import HeroDesktop from '@/assets/expertos-construccion-diseno-mantenimiento.jpg';
+import HeroMobile from '@/assets/expertos-construccion-diseno-mantenimiento-mobile.jpg';
+import PanelSolar from '@/assets/instalacion-paneles-solares.jpg';
+
+import HeroPicture from '@/components/ui/HeroPicture.astro';
+
 ---
 
-<Layout>
-	<Welcome />
+<Layout 
+    title="Construccion, diseño y mantenimiento"
+    description="Expertos en construcción, diseño y mantenimiento de proyectos industriales y de infraestructura civil."
+>
+	<section class="bg-(--color-3) h-[120vh] md:h-screen mx-4 md:mx-8 rounded-b-lg relative">
+        <figure class="absolute w-full h-full top-0 left-0 z-0 animate-blurred-fade-in animate-delay-300 animate-duration-1000">
+            <HeroPicture
+                mobileImg={ HeroMobile }
+                desktopImg={ HeroDesktop }
+                alt="Expertos en construcción, diseño y mantenimiento de proyectos industriales y de infraestructura civil."
+                className="w-full h-full object-cover rounded-b-lg"
+            />
+        </figure>
+        <div class="w-full lg:w-1/3 h-full ml-auto flex flex-col justify-start lg:justify-center p-6 md:p-12 mr-39 relative z-10">
+            <h1 class="text-xl/7 md:text-3xl font-bold mb-4">Expertos en construcción, diseño y mantenimiento de proyectos industriales y de infraestructura civil.</h1>
+            <p class="text-lg md:text-2xl mb-4">Más de 10 años ejecutando obras para aeropuertos, hangares, bodegas y espacios corporativos.</p>
+            <ul class="text-sm md:text-xl font-light mb-8 space-y-2">
+                <li class="flex flex-row gap-2 items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="currentColor" fill-rule="evenodd" d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18m-.232-5.36l5-6l-1.536-1.28l-4.3 5.159l-2.225-2.226l-1.414 1.414l3 3l.774.774z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="flex-1"><span>Cumplimiento técnico y operativo garantizado.</span>
+                </li>
+                <li class="flex flex-row gap-2 items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="currentColor" fill-rule="evenodd" d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18m-.232-5.36l5-6l-1.536-1.28l-4.3 5.159l-2.225-2.226l-1.414 1.414l3 3l.774.774z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="flex-1">Experiencia con marcas líderes del país.</span>
+                </li>
+                <li class="flex flex-row gap-2 items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="currentColor" fill-rule="evenodd" d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18m-.232-5.36l5-6l-1.536-1.28l-4.3 5.159l-2.225-2.226l-1.414 1.414l3 3l.774.774z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="flex-1">Soluciones a la medida de tu operación.</span>
+                </li>
+                <li class="flex flex-row gap-2 items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="currentColor" fill-rule="evenodd" d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18m-.232-5.36l5-6l-1.536-1.28l-4.3 5.159l-2.225-2.226l-1.414 1.414l3 3l.774.774z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="flex-1">Acompañamiento personalizado y soporte continuo.</span>
+                </li>
+            </ul>
+            <BTNWhatsapp 
+                anchor="Quiero una asesoría"
+            />
+        </div>
+    </section>
+    <section class="px-8 relative">
+        <LogoMarquee
+            speed={ 60 }
+            class="py-4 lg:py-8"
+            pauseOnHover={ false }
+        />
+    </section>
+    <section class="pt-16 pb-24">
+        <div class="flex flex-col lg:flex-row gap-22 lg:gap-47 w-full lg:w-10/12 px-4 md:px-8 lg:px-0 lg:mx-auto">
+            <div class="w-full lg:w-3/10">
+                <p class="font-light uppercase text-sm md:text-lg mb-2">Servicios</p>
+                <h2 class="text-3xl md:text-5xl font-bold text-[#555555] mb-4">Todo lo que tu proyecto necesita <strong class="text-black font-bold">para ejecutarse con éxito</strong></h2>
+                <p class="text-xl md:text-3xl mb-8 font-light">Un equipo técnico especializado que acompaña desde la planeación hasta la operación final.</p>
+                <BTN 
+                    anchor="Ver todos los servicios"
+                    url="/servicios"
+                />
+            </div>
+            <div class="w-full lg:w-6/10 border-t border-t-[#dadada]">
+                {
+                    Services.map( ( service:Service ) => (
+                        <div class="relative flex flex-col md:flex-row py-2 hover:px-2 border-b border-b-[#dadada] hover:bg-gray-100 transition-all">
+                            <figure class="block aspect-video w-full md:w-48 bg-gray-200 rounded-lg overflow-hidden">
+                                <Image 
+                                    transition:name={ `${ service.name }-image` }
+                                    src={`/src/assets/${ service.feat_image }`}
+                                    alt={ service.name }
+                                    width={ 300 }
+                                    height={ 169 }
+                                    class="w-full h-full object-cover"
+                                />
+                            </figure>
+                            <div class="flex-1 px-4 flex flex-col justify-center pt-4 md:pt-0">
+                                <h3 class="text-lg md:text-xl font-bold">{ service.name }</h3>
+                                <p class="text-sm md:text-xl font-light">{ service.description }</p>
+                            </div>
+                            <div class="aspect-square hidden md:flex justify-center items-center text-4xl font-bold px-4">
+                                0{ service.id }
+                            </div>
+                            <a href={`/servicios/${ service.slug }`} class="absolute h-full w-full top-0 left-0"><span class="hidden">Ver { service.slug }</span></a>
+                        </div>
+                    ) )
+                }
+            </div>
+        </div>
+    </section>
+    <section class="h-screen md:h-auto md:py-51 mx-4 md:mx-8 bg-(--color-3) rounded-lg relative">
+        <figure class="absolute w-full h-full top-0 left-0 z-0 timeline-view animate-blurred-fade-in animate-range-[entry_5%_contain_20%]">
+            <Image 
+                src={ PanelSolar }
+                alt="Instalacion y mantenimiento de paneles solares"
+                width={ 1920 }
+                height={ 737 }
+                class="w-full h-full object-cover object-[40%] md:object-center rounded-lg"
+                priority
+            />
+
+        </figure>
+        <div class="w-full h-full md:h-auto md:w-1/2 lg:w-4/12 ml-auto relative z-10 p-4 md:p-0 flex flex-col justify-end md:justify-center">
+            <p class="font-light uppercase text-sm md:text-lg mb-2 text-white">Servicios</p>
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-8 mr-16">Instalación y mantenimiento de paneles solares</h2>
+            <BTN 
+                anchor="Saber más"
+                url="/paneles-solares"
+            />
+        </div>
+    </section>
+    <section class="w-full lg:w-10/12 px-4 md:px-8 lg:px-0 mx-auto pt-24 pb-8">
+        <p class="font-light uppercase text-sm md:text-lg mb-2">Nosotros</p>
+        <h2 class="text-3xl md:text-5xl font-bold text-[#555555] mb-8 w-full lg:w-1/2">Por qué las principales compañías <strong class="text-black font-bold">confían en MO Diseño y Arquitectura</strong></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row gap-8">
+            <div class="bg-[#ebe6d2] rounded-lg p-16 flex flex-col items-center w-full lg:w-1/4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4" width="1em" height="1em" viewBox="0 0 2048 2048">
+                    <path d="M0 0h2048v2048H0z" fill="none" />
+                    <path fill="currentColor" d="M832 794L467 429l90-90l275 275l531-531l90 90zm1088 482q1 2 1 29t1 69t0 97t0 111t-1 114t0 102t-1 79t0 43H0v-121q0-47-1-103t0-113t-1-112t0-96t0-70t2-29l238-714l101 102l-205 616h418l128 256h560l128-256h418l-269-809l101-101zm-128 132h-344l-128 256H600l-128-256H128v384h1664z" />
+                </svg>
+                <p class="text-xl font-light text-center">Cumplimiento y precisión técnica</p>
+            </div>
+            <div class="bg-[#ebe6d2] rounded-lg p-16 flex flex-col items-center w-full lg:w-1/4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4" width="1em" height="1em" viewBox="0 0 512 512">
+                    <path d="M0 0h512v512H0z" fill="none" />
+                    <path fill="currentColor" d="M418.968 215.116A71.976 71.976 0 0 0 408.023 72H384V40a24.03 24.03 0 0 0-24-24H72a24.03 24.03 0 0 0-24 24v104a24.03 24.03 0 0 0 24 24h288a24.03 24.03 0 0 0 24-24v-40h24.023a39.977 39.977 0 0 1 6.079 79.489L240 210.273V280h-56v216h144V280h-56v-42.273ZM352 136H80V48h272Zm-56 176v152h-80V312Z" />
+                </svg>
+                <p class="text-xl font-light text-center">Experiencia comprobada en proyectos de alta complejidad</p>
+            </div>
+            <div class="bg-[#ebe6d2] rounded-lg p-16 flex flex-col items-center w-full lg:w-1/4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4" width="1em" height="1em" viewBox="0 0 16 16">
+                    <path d="M0 0h16v16H0z" fill="none" />
+                    <path fill="none" stroke="currentColor" stroke-linejoin="round" d="M1.583 4.5L8 1.583L14.417 4.5m-12.834 0L8 7.417M1.583 4.5v6.417L8 14.417m0-7L14.417 4.5M8 7.417v7M14.417 4.5v6.417L8 14.417M10.5 13V9.5m2 2.5V8.5" />
+                </svg>
+                <p class="text-xl font-light text-center">Gestión integral: diseño, ejecución y mantenimiento</p>
+            </div>
+            <div class="bg-[#ebe6d2] rounded-lg p-16 flex flex-col items-center w-full lg:w-1/4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4" width="1em" height="1em" viewBox="0 0 48 48">
+                    <path d="M0 0h48v48H0z" fill="none" />
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                        <path d="M30.24 6.212q.387.213.76.444c4.937 3.058 8.238 8.46 8.313 14.63l3.747 5.223c.563.785.465 1.846-.363 2.344c-.83.5-2.063 1.084-3.734 1.488l-.566 6.718a3 3 0 0 1-3.358 2.725l-2.8-.346V43a2 2 0 0 1-1.998 2H13.014a2 2 0 0 1-1.999-2v-7.5c-4.295-3.192-7.075-8.275-7.075-14c0-6.26 3.321-11.75 8.315-14.844" />
+                        <path d="M17.023 14.057a8 8 0 1 0 7.954 0Q24.998 12.738 25 11c0-2.551-.044-4.405-.09-5.645c-.043-1.2-.854-2.187-2.05-2.285A24 24 0 0 0 21 3c-.732 0-1.35.029-1.86.07c-1.196.098-2.007 1.085-2.05 2.285C17.043 6.595 17 8.449 17 11q.001 1.739.023 3.057" />
+                        <path d="M21 29c3 3 7.6 5 12 5" />
+                    </g>
+                </svg>
+                <p class="text-xl font-light text-center">Atención personalizada y soporte continuo</p>
+            </div>
+        </div>
+        <div class="flex justify-center pt-16">
+            <BTN 
+                anchor="Saber más sobre nosotros"
+                url="/nosotros"
+            />
+        </div>
+    </section>
+    <section class="w-full lg:w-10/12 px-4 md:px-8 lg:px-0 mx-auto pt-16 pb-8">
+        <p class="font-light uppercase text-sm md:text-lg mb-2">Obras realizadas</p>
+        <h2 class="text-3xl md:text-5xl font-bold text-[#555555] mb-8 w-full lg:w-1/2">Nuestros <strong class="text-black font-bold">trabajos destacados</strong></h2>
+        <div class="flex flex-col lg:flex-row gap-8">
+            {
+                Experience.map( ( exp:Experiencia ) => (
+                    <div class="w-full lg:w-1/3 bg-(--color-2) aspect-square rounded-lg relative hover:-translate-y-2 hover:bg-(--color-3) transition-all overflow-hidden group">
+                        <figure class="w-full h-full mb-4 overflow-hidden absolute top-0 left-0 z-0">
+                            <Image
+                                transition:name={ `${ exp.title }-image` }
+                                src={`/src/assets/${ exp.feat_image }`}
+                                alt={ exp.title }
+                                width={ 600 }
+                                height={ 338 }
+                                class="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-all"
+                            />
+                        </figure>
+                        <div class="p-16 relative flex flex-col justify-end h-full z-10">
+                            <h3 class="font-bold text-xl">{ exp.title }</h3>
+                            <p class="font-light text-xl">{ exp.lugar } - { exp.ciudad }</p>
+                        </div>
+                        <a class="absolute h-full w-full top-0 left-0 z-20" href={`/obras-realizadas/${ exp.slug }`}>
+                            <span class="hidden">Ver { exp.title }</span>
+                        </a>
+                    </div>
+                ) )
+            }
+        </div>
+    </section>
+    <section class="w-full lg:w-10/12 px-4 md:px-8 lg:px-0 mx-auto pt-16 pb-24">
+        <p class="font-light uppercase text-sm md:text-lg mb-2">Testimonios</p>
+        <h2 class="text-3xl md:text-5xl font-bold text-[#555555] mb-8 w-full lg:w-1/2">Así hablan nuestros clientes <strong class="text-black font-bold">Sobre nuestro trabajo</strong></h2>
+        <div class="p-8 md:p-32 lg:p-51 bg-radial from-[#e7e7e7] to-[#dad0ac] rounded-lg">
+            <div class="flex flex-col lg:flex-row gap-8 mb-8">
+                <figure class="w-70.5 aspect-square rounded-full bg-gray-500 mx-auto lg:mx-0">
+
+                </figure>
+                <div class="flex-1 flex flex-col justify-center">
+                    <p class="italic text-lg md:text-xl mb-4">«Los proyectos de GIC Brasil, con sus marcas, que desarrollamos con MO Diseño & Arquitectura siempre han cumplido con las expectativas y estándares de la compañía. Los costos, procesos y desarrollo de eventos han estado al alcance de nosotros con un buen acompañamiento por parte del equipo, teniendo siempre en cuenta las necesidades de la compañía»</p>
+                    <p class="font-bold text-lg md:text-xl">Catalina Ortiz</p>
+                    <p class="font-medium italic text-lg md:text-xl">Dirección de Mercadeo</p>
+                    <p class="font-light text-lg md:text-xl">GIC Brasil</p>
+                </div>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-8">
+                <figure class="w-70.5 aspect-square rounded-full bg-gray-500 mx-auto lg:mx-0">
+
+                </figure>
+                <div class="flex-1 flex flex-col justify-center">
+                    <p class="italic text-lg md:text-xl mb-4">«Trabajar con MO Diseño & Arquitectura ha sido muy satisfactorio para nosotros como compañía. Son un equipo orientado a las necesidades del cliente, siempre buscando oportunidades de optimización de costos sin impactar la calidad. Todos los proyectos que hemos trabajado con ellos, han sido entregados a entera satisfacción y en los tiempos establecidos.»</p>
+                    <p class="font-bold text-lg md:text-xl">Carlos Torres</p>
+                    <p class="font-medium italic text-lg md:text-xl">Director de Aerolíneas para Latinoamérica</p>
+                    <p class="font-light text-lg md:text-xl">Travelport</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-[#dde8d8] py-51">
+        <div class="w-10/12 mx-auto flex flex-row gap-8">
+            <div class="w-1/2">
+                <p class="text-2xl font-light uppercase">¿Tienes un proyecto en marcha?</p>
+                <p class="text-4xl font-bold mb-4">¡Conversemos!</p>
+                <p class="text-2xl font-light mb-8">Nuestro equipo técnico puede asesorarte en diseño, construcción o mantenimiento de tu infraestructura.</p>
+                <BTNWhatsapp 
+                    anchor="Quiero una asesoría"
+                />
+            </div>
+            <div class="w-1/2 bg-gray-300">
+
+            </div>
+        </div>
+    </section>
 </Layout>

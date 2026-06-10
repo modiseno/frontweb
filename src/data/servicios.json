@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "name": "Construcción, Obra Civil y Supervisión de Proyectos",
+        "slug": "construccion",
+        "description": "Ejecutamos obras industriales y civiles con precisión técnica. Cumplimiento en tiempos, calidad y presupuesto.",
+        "desc_img": "construccion-obra-civil-revision.jpg",
+        "desc_general": [
+            "En MO Diseño y Arquitectura desarrollamos proyectos de construcción y obra civil de principio a fin, abarcando desde la planeación hasta la entrega final. Contamos con un equipo técnico y operativo especializado en la ejecución de proyectos residenciales, industriales, comerciales y de infraestructura civil de gran escala.",
+            "Nuestros servicios están dirigidos a empresas, aerolíneas, operadores logísticos, desarrolladores inmobiliarios y entidades privadas o públicas que requieren soluciones de construcción confiables, con un alto nivel de cumplimiento y estándares de calidad.",
+            "Nos diferenciamos por ofrecer una gestión integral y una supervisión técnica permanente, asegurando que cada fase del proyecto cumpla con los lineamientos estructurales, normativos y de seguridad industrial exigidos en el sector."
+        ],
+        "soluciones": [
+            "<strong class=\"font-bold block mb-4\">Ejecución de obras industriales y de infraestructura civil</strong> Construcción de bodegas, hangares, plataformas, estructuras metálicas y obras de urbanismo.",
+            "<strong class=\"font-bold block mb-4\">Supervisión técnica y control de calidad</strong> Acompañamiento en campo por profesionales especializados en ingeniería y arquitectura.",
+            "<strong class=\"font-bold block mb-4\">Gestión integral de contratistas y recursos</strong> Coordinamos personal, materiales y procesos para asegurar eficiencia y cumplimiento.",
+            "<strong class=\"font-bold block mb-4\">Planeación y control de cronogramas.</strong> Seguimiento continuo al avance de obra, optimizando tiempos y recursos.",
+            "<strong class=\"font-bold block mb-4\">Seguridad industrial y control ambiental</strong> Cumplimiento estricto de normas técnicas y protocolos de seguridad en todos los frentes de trabajo."
+        ],
+        "beneficios":[
+            "Cumplimiento garantizado en plazos y estándares técnicos.",
+            "Coordinación integral que evita sobrecostos y retrasos.",
+            "Supervisión constante en todas las etapas del proyecto.",
+            "Experiencia comprobada en obras de alta complejidad."
+        ],
+        "proceso_img": "construccion-obra-civil-proceso.jpg",
+        "proceso": [
+            "<strong class=\"font-bold block\">Diagnóstico y planificación técnica y financiera</strong> Levantamiento de requerimientos, presupuesto y alcance, diseño de cronogramas y definición de recursos.",
+            "<strong class=\"font-bold block\">Ejecución y supervisión de obra</strong> Control técnico permanente y coordinación de equipos en campo.",
+            "<strong class=\"font-bold block\">Gestión de calidad y seguridad</strong> Aplicación de protocolos técnicos y ambientales durante toda la obra.",
+            "<strong class=\"font-bold block\">Entrega final y soporte postproyecto</strong> Revisión final, documentación técnica y acompañamiento al cliente."
+        ],
+        "feat_image": "construccion-obra-civil.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Remodelaciones y Adecuaciones",
+        "slug": "remodelaciones",
+        "description": "Transformamos espacios sin detener tu operación. Funcionalidad, estética y eficiencia en cada detalle.",
+        "desc_img": "remodelaciones-adecuaciones-proceso.jpg",
+        "desc_general": [
+            "En MO Diseño y Arquitectura realizamos proyectos de remodelación, adecuación y modernización de espacios para clientes industriales, corporativos y residenciales. Adaptamos cada ambiente a las necesidades operativas, técnicas y estéticas del cliente, manteniendo el equilibrio entre diseño, funcionalidad y cumplimiento normativo.",
+            "Este servicio está dirigido a empresas, aerolíneas y aeropuertos, centros comerciales, clínicas, edificios corporativos y conjuntos residenciales que requieren renovar, reorganizar o adecuar sus espacios sin afectar el desarrollo de sus actividades diarias.",
+            "Nuestro valor diferencial radica en la planificación detallada y la coordinación técnica, que nos permite ejecutar remodelaciones de manera ágil, segura y con el mínimo impacto sobre la operación de nuestros clientes."
+        ],
+        "soluciones": [
+            "<strong class=\"font-bold block mb-4\">Remodelación de espacios corporativos e industriales.</strong> Actualización de áreas de trabajo, oficinas, bodegas y zonas operativas.",
+            "<strong class=\"font-bold block mb-4\">Adecuación de locales comerciales y espacios de atención.</strong> Diseño y ejecución de obras interiores para locales, tiendas y espacios de servicio.",
+            "<strong class=\"font-bold block mb-4\">Reforzamiento estructural y adecuaciones técnicas.</strong> Obras de refuerzo, ampliaciones, instalaciones eléctricas, hidráulicas y de tecnología.",
+            "<strong class=\"font-bold block mb-4\">Acabados arquitectónicos y diseño interior</strong> Aplicación de materiales, iluminación y acabados funcionales de alto desempeño.",
+            "<strong class=\"font-bold block mb-4\">Gestión integral del proyecto</strong> Coordinación técnica, logística y de personal para asegurar cumplimiento en tiempos y presupuesto."
+        ],
+        "beneficios":[
+            "Ejecución sin interrupción de la operación del cliente.",
+            "Cumplimiento en tiempos, costos y especificaciones técnicas.",
+            "Adaptación precisa a las necesidades funcionales y estéticas.",
+            "Supervisión permanente de profesionales durante toda la obra."
+        ],
+        "proceso_img": "remodelaciones-adecuaciones-revision.jpg",
+        "proceso": [
+            "<strong class=\"font-bold block\">Diagnóstico y levantamiento de requerimientos</strong> Identificación de necesidades técnicas, funcionales y estéticas del espacio.",
+            "<strong class=\"font-bold block\">Diseño y planeación</strong> Desarrollo de propuesta arquitectónica, cronograma y presupuesto.",
+            "<strong class=\"font-bold block\">Ejecución controlada</strong> Remodelación o adecuación con supervisión técnica y control de calidad continuo.",
+            "<strong class=\"font-bold block\">Entrega final y revisión postproyecto</strong> Verificación de cumplimiento y entrega del espacio listo para operatividad."
+        ],
+        "feat_image": "remodelaciones-adecuaciones.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Mantenimiento residencial, industrial y corporativo",
+        "slug": "mantenimiento",
+        "description": "Protegemos tus instalaciones todo el año. Mantenimiento confiable, preventivo y correctivo.",
+        "desc_img": "mantenimiento-residencial-industrial-operacion.jpg",
+        "desc_general": [
+            "En MO Diseño y Arquitectura ofrecemos servicios de mantenimiento integral diseñados para conservar en óptimas condiciones las instalaciones residenciales, industriales y corporativas. Nuestro enfoque combina prevención, eficiencia y seguridad, con el respaldo de un equipo técnico especializado en obras civiles, redes eléctricas, hidráulicas, sanitarias y acabados arquitectónicos.",
+            "Este servicio está dirigido a propiedades horizontales, empresas, aeropuertos y aerolíneas, centros comerciales, clínicas, oficinas y conjuntos residenciales que requieren un aliado confiable para la conservación de su infraestructura y la atención oportuna de emergencias técnicas.",
+            "Nos diferenciamos por implementar planes personalizados de mantenimiento que optimizan recursos, prolongan la vida útil de las instalaciones y reducen los tiempos de inactividad en la operación."
+        ],
+        "soluciones": [
+            "<strong class=\"font-bold block mb-4\">Mantenimiento preventivo y correctivo</strong> Inspección, reparación y conservación de sistemas eléctricos, hidráulicos, sanitarios y estructurales verticales y horizontales.",
+            "<strong class=\"font-bold block mb-4\">Mantenimiento general de infraestructura</strong> Pintura, albañilería, pisos, fachadas, cubiertas, cerramientos y carpintería.",
+            "<strong class=\"font-bold block mb-4\">Instalaciones técnicas</strong> Redes eléctricas, voz y datos, cableado estructurado y sistemas de iluminación.",
+            "<strong class=\"font-bold block mb-4\">Limpieza y mantenimiento especializado</strong> Lavado de fachadas, mantenimiento de techos, cubiertas y espacios comunes.",
+            "<strong class=\"font-bold block mb-4\">Atención de emergencias técnicas</strong> Equipos disponibles para intervenciones urgentes en edificaciones residenciales o industriales."
+        ],
+        "beneficios":[
+            "Planes personalizados según el tipo de instalación.",
+            "Prevención de fallas y reducción de costos operativos.",
+            "Respuesta técnica inmediata ante emergencias.",
+            "Equipo especializado con experiencia en entornos industriales y corporativos."
+        ],
+        "proceso_img": "mantenimiento-residencial-industrial-proceso.jpg",
+        "proceso": [
+            "<strong class=\"font-bold block\">Evaluación técnica inicial</strong> Diagnóstico de instalaciones y definición del alcance del mantenimiento.",
+            "<strong class=\"font-bold block\">Diseño del plan de mantenimiento</strong> Programación de actividades preventivas y correctivas con prioridades y cronograma.",
+            "<strong class=\"font-bold block\">Ejecución y supervisión</strong> Intervención por personal técnico calificado y seguimiento de calidad.",
+            "<strong class=\"font-bold block\">Informe y acompañamiento continuo</strong> Entrega de reportes técnicos, resultados y recomendaciones de mejora."
+        ],
+        "feat_image": "mantenimiento-residencial-industrial.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Diseño Arquitectónico",
+        "slug": "diseno",
+        "description": "Diseñamos espacios estratégicos y funcionales. Arquitectura pensada para operar y perdurar.",
+        "desc_img": "diseno-arquitectonico-plan.jpg",
+        "desc_general": [
+            "En MO Diseño y Arquitectura desarrollamos proyectos arquitectónicos personalizados, integrando creatividad, funcionalidad y viabilidad técnica. Nuestro proceso de diseño parte de un análisis profundo de las necesidades del cliente, el entorno y la operación, para proponer soluciones eficientes, modernas y sostenibles.",
+            "Este servicio está dirigido a empresas, promotores inmobiliarios, desarrolladores y clientes particulares que buscan transformar sus ideas en espacios concretos y coherentes, con la seguridad de contar con un equipo que entiende tanto el diseño como la ejecución constructiva.",
+            "Nos caracteriza una visión integral: cada propuesta arquitectónica se concibe desde la experiencia constructiva, garantizando que el diseño no solo se vea bien, sino que pueda construirse con precisión y durabilidad."
+        ],
+        "soluciones": [
+            "<strong class=\"font-bold block mb-4\">Diseño arquitectónico integral</strong> Conceptualización, desarrollo y documentación de proyectos para espacios industriales, residenciales y comerciales.",
+            "<strong class=\"font-bold block mb-4\">Diseño interior y distribución funcional</strong> Optimización del espacio para mejorar la operación, el confort y la estética.",
+            "<strong class=\"font-bold block mb-4\">Levantamientos arquitectónicos y modelado 3D</strong> Planos, renders y visualizaciones realistas que facilitan la toma de decisiones.",
+            "<strong class=\"font-bold block mb-4\">Diseño técnico y constructivo</strong> Coordinación de disciplinas y desarrollo de detalles constructivos para una ejecución precisa.",
+            "<strong class=\"font-bold block mb-4\">Acompañamiento en licenciamiento y ejecución</strong> Asesoría en la obtención de permisos y seguimiento técnico durante la obra."
+        ],
+        "beneficios":[
+            "Diseños funcionales adaptados a las necesidades operativas.",
+            "Propuestas estéticas con criterio técnico y constructivo.",
+            "Optimización del espacio y los recursos.",
+            "Acompañamiento continuo desde el concepto hasta la ejecución."
+        ],
+        "proceso_img": "diseno-arquitectonico-proceso.jpg",
+        "proceso": [
+            "<strong class=\"font-bold block\">Brief y levantamiento de información</strong> Recolección de requerimientos funcionales, estéticos y técnicos del cliente.",
+            "<strong class=\"font-bold block\">Conceptualización y diseño preliminar</strong> Propuesta arquitectónica inicial, planos base y modelado 3D.",
+            "<strong class=\"font-bold block\">Desarrollo técnico del proyecto</strong> Coordinación interdisciplinaria y definición de detalles constructivos.",
+            "<strong class=\"font-bold block\">Entrega final y acompañamiento</strong> Documentación lista para licenciamiento o ejecución, con soporte continuo."
+        ],
+        "feat_image": "diseno-arquitectonico.jpg"
+    }
+]

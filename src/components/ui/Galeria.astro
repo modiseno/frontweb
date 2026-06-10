@@ -1,0 +1,167 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const imageImports = import.meta.glob<{ default: ImageMetadata }>(
+    '/src/assets/galerias/**/*.{jpg,jpeg,png,webp}',
+    { eager: true }
+);
+
+interface Props {
+    imagenes: string[];
+    alt?: string;
+}
+
+const { imagenes, alt = "Imagen de galería" } = Astro.props;
+
+function resolveImage( path: string ): ImageMetadata | undefined {
+    const key = `/src/assets/galerias/${path}`;
+    return imageImports[key]?.default;
+}
+---
+
+{
+    imagenes.length > 0 && (
+        <div class="w-full">
+            <div
+                data-gallery
+                class="columns-2 sm:columns-3 lg:columns-6 gap-8"
+            >
+                { imagenes
+                    .map(src => ({ src, imgSrc: resolveImage( src ) }))
+                    .filter(x => x.imgSrc)
+                    .map((x, i) => (
+                    <button
+                        data-index={i}
+                        class="break-inside-avoid mb-4 overflow-hidden rounded-lg cursor-pointer p-0 border-0 bg-transparent block w-full group"
+                        aria-label={`${alt} ${i + 1}`}
+                    >
+                        <Image
+                            src={ x.imgSrc! }
+                            alt={`${alt} ${i + 1}`}
+                            width={1200}
+                            height={1200}
+                            class="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                            loading="lazy"
+                            draggable="false"
+                        />
+                    </button>
+                ))}
+            </div>
+
+            <div
+                data-lightbox
+                class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Visor de imágenes"
+            >
+                <button
+                    data-close
+                    class="absolute top-4 right-4 text-white text-4xl cursor-pointer z-50 hover:text-gray-300 leading-none w-12 h-12 flex items-center justify-center"
+                    aria-label="Cerrar"
+                >
+                    &times;
+                </button>
+
+                <button
+                    data-prev
+                    class="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 text-white text-5xl cursor-pointer z-50 hover:text-gray-300 leading-none w-12 h-12 flex items-center justify-center"
+                    aria-label="Anterior"
+                >
+                    &lsaquo;
+                </button>
+
+                <img
+                    data-lb-img
+                    class="max-w-full max-h-[90vh] object-contain select-none"
+                    src=""
+                    alt=""
+                />
+
+                <button
+                    data-next
+                    class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 text-white text-5xl cursor-pointer z-50 hover:text-gray-300 leading-none w-12 h-12 flex items-center justify-center"
+                    aria-label="Siguiente"
+                >
+                    &rsaquo;
+                </button>
+
+                <span
+                    data-counter
+                    class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm font-light"
+                />
+            </div>
+        </div>
+    )
+}
+
+<script is:inline>
+    (() => {
+        const root = document.currentScript.parentElement;
+        if (!root) return;
+
+        const lightbox = root.querySelector('[data-lightbox]');
+        const lbImg = root.querySelector('[data-lb-img]');
+        const closeBtn = root.querySelector('[data-close]');
+        const prevBtn = root.querySelector('[data-prev]');
+        const nextBtn = root.querySelector('[data-next]');
+        const counter = root.querySelector('[data-counter]');
+        const gallery = root.querySelector('[data-gallery]');
+
+        if (!gallery || !lightbox || !lbImg) return;
+
+        const items = gallery.querySelectorAll('button');
+        if (!items.length) return;
+
+        let current = 0;
+
+        function open(index) {
+            const btn = items[index];
+            const img = btn.querySelector('img');
+            if (!img) return;
+
+            current = index;
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            if (counter) {
+                counter.textContent = `${current + 1} / ${items.length}`;
+            }
+        }
+
+        function close() {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function prev() {
+            open((current - 1 + items.length) % items.length);
+        }
+
+        function next() {
+            open((current + 1) % items.length);
+        }
+
+        items.forEach((item, i) => {
+            item.addEventListener('click', () => open(i));
+        });
+
+        closeBtn?.addEventListener('click', close);
+        prevBtn?.addEventListener('click', prev);
+        nextBtn?.addEventListener('click', next);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') close();
+            if (e.key === 'ArrowLeft') prev();
+            if (e.key === 'ArrowRight') next();
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) close();
+        });
+    })();
+</script>

@@ -1,0 +1,30 @@
+---
+import type { Experiencia } from '@/interfaces/experience.interface';
+import { Image } from 'astro:assets';
+
+interface Props {
+    obra: Experiencia;
+}
+
+const { obra } = Astro.props;
+---
+
+<article class="p-2 bg-(--color-2) aspect-square rounded-lg relative hover:-translate-y-1 hover:bg-gray-100 transition-all overflow-hidden group">
+    <figure class="w-full h-full rounded-lg absolute top-0 left-0 z-0">
+        <Image
+            transition:name={ `${ obra.title }-image` }
+            src={`/src/assets/${ obra.feat_image }`}
+            alt={ obra.title }
+            width={ 600 }
+            height={ 338 }
+            class="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity"
+        />
+    </figure>
+    <div class="p-8 md:p-16 relative z-10 h-full w-full flex flex-col justify-end">
+        <h3 class="font-bold text-xl">{ obra.title }</h3>
+        <p class="font-light text-xl">{ obra.excerpt }</p>
+    </div>
+    <a href={`/obras-realizadas/${ obra.slug }`} class="absolute h-full w-full top-0 left-0 z-20">
+        <span class="opacity-0">ver { obra.title }</span>
+    </a>
+</article>

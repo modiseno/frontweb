@@ -1,0 +1,83 @@
+---
+export const prerender = true;
+
+import type { Service } from "@/interfaces/services.interface";
+import Layout from "@/layouts/Layout.astro";
+
+import Services from "@/data/servicios.json";
+
+import HeroMini from "@/components/ui/HeroMini.astro";
+import LogoMarquee from "@/components/ui/LogoMarquee.astro";
+import ServiceCard from "@/components/cards/ServiceCard.astro";
+
+import HeroImage from "@/assets/mo-diseno-arquitectura-servicios.jpg";
+---
+
+<Layout
+    title="Servicios para infraestructura civil"
+    description="En MO Diseño y Arquitectura integramos ingeniería, diseño y construcción bajo una misma visión, asegurando coherencia, control y acompañamiento continuo en cada etapa del proceso."
+>
+    <HeroMini 
+        section="Servicios"
+        title="Servicios integrales para tus proyectos industriales y de infraestructura civil"
+        copy="Desde la ingeniería y diseño hasta la construcción, remodelación y mantenimiento"
+        bgImage={ HeroImage }
+    />
+    <section class="pt-24 pb-16 px-4 md:px-8 lg:px-0">
+        <h2 class="text-3xl md:text-5xl font-bold text-[#555555] mb-8 text-center">Servicios integrales <strong class="block font-bold text-black">para cada etapa de tu proyecto.</strong></h2>
+        <p class="text-lg md:text-3xl font-light text-center w-full lg:w-8/12 mx-auto">Nos especializamos en convertir las necesidades de cada cliente en proyectos ejecutados con precisión y eficiencia. En MO Diseño y Arquitectura integramos ingeniería, diseño y construcción bajo una misma visión, asegurando coherencia, control y acompañamiento continuo en cada etapa del proceso.</p>
+    </section>
+    <section class="px-4 md:px-8 relative">
+        <LogoMarquee
+            speed={ 60 }
+            class="py-4 lg:pt-16 lg:pb-16"
+            pauseOnHover={ false }
+        />
+    </section>
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full md:w-10/12 mx-auto px-4 md:px-0 pt-16 pb-16">
+        {
+            Services.map( ( servicio: Service ) => (
+                <ServiceCard 
+                    servicio={ servicio }
+                />
+            ) )
+        }
+    </section>
+    <section class="w-full md:w-10/12 mx-auto px-4 md:px-0 pt-16 pb-24">
+        <h2 class="text-3xl md:text-5xl font-bold text-[#555555] mb-8 w-full lg:w-1/2">Por qué las principales compañías <strong class="text-black font-bold">confían en MO Diseño y Arquitectura</strong></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-[#ebe6d2] rounded-lg p-16 flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4" width="1em" height="1em" viewBox="0 0 2048 2048">
+                    <path d="M0 0h2048v2048H0z" fill="none" />
+                    <path fill="currentColor" d="M832 794L467 429l90-90l275 275l531-531l90 90zm1088 482q1 2 1 29t1 69t0 97t0 111t-1 114t0 102t-1 79t0 43H0v-121q0-47-1-103t0-113t-1-112t0-96t0-70t2-29l238-714l101 102l-205 616h418l128 256h560l128-256h418l-269-809l101-101zm-128 132h-344l-128 256H600l-128-256H128v384h1664z" />
+                </svg>
+                <p class="text-xl font-light text-center">Cumplimiento y precisión técnica</p>
+            </div>
+            <div class="bg-[#ebe6d2] rounded-lg p-16 flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4" width="1em" height="1em" viewBox="0 0 512 512">
+                    <path d="M0 0h512v512H0z" fill="none" />
+                    <path fill="currentColor" d="M418.968 215.116A71.976 71.976 0 0 0 408.023 72H384V40a24.03 24.03 0 0 0-24-24H72a24.03 24.03 0 0 0-24 24v104a24.03 24.03 0 0 0 24 24h288a24.03 24.03 0 0 0 24-24v-40h24.023a39.977 39.977 0 0 1 6.079 79.489L240 210.273V280h-56v216h144V280h-56v-42.273ZM352 136H80V48h272Zm-56 176v152h-80V312Z" />
+                </svg>
+                <p class="text-xl font-light text-center">Experiencia comprobada en proyectos de alta complejidad</p>
+            </div>
+            <div class="bg-[#ebe6d2] rounded-lg p-16 flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4" width="1em" height="1em" viewBox="0 0 16 16">
+                    <path d="M0 0h16v16H0z" fill="none" />
+                    <path fill="none" stroke="currentColor" stroke-linejoin="round" d="M1.583 4.5L8 1.583L14.417 4.5m-12.834 0L8 7.417M1.583 4.5v6.417L8 14.417m0-7L14.417 4.5M8 7.417v7M14.417 4.5v6.417L8 14.417M10.5 13V9.5m2 2.5V8.5" />
+                </svg>
+                <p class="text-xl font-light text-center">Gestión integral: diseño, ejecución y mantenimiento</p>
+            </div>
+            <div class="bg-[#ebe6d2] rounded-lg p-16 flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4" width="1em" height="1em" viewBox="0 0 48 48">
+                    <path d="M0 0h48v48H0z" fill="none" />
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                        <path d="M30.24 6.212q.387.213.76.444c4.937 3.058 8.238 8.46 8.313 14.63l3.747 5.223c.563.785.465 1.846-.363 2.344c-.83.5-2.063 1.084-3.734 1.488l-.566 6.718a3 3 0 0 1-3.358 2.725l-2.8-.346V43a2 2 0 0 1-1.998 2H13.014a2 2 0 0 1-1.999-2v-7.5c-4.295-3.192-7.075-8.275-7.075-14c0-6.26 3.321-11.75 8.315-14.844" />
+                        <path d="M17.023 14.057a8 8 0 1 0 7.954 0Q24.998 12.738 25 11c0-2.551-.044-4.405-.09-5.645c-.043-1.2-.854-2.187-2.05-2.285A24 24 0 0 0 21 3c-.732 0-1.35.029-1.86.07c-1.196.098-2.007 1.085-2.05 2.285C17.043 6.595 17 8.449 17 11q.001 1.739.023 3.057" />
+                        <path d="M21 29c3 3 7.6 5 12 5" />
+                    </g>
+                </svg>
+                <p class="text-xl font-light text-center">Atención personalizada y soporte continuo</p>
+            </div>
+        </div>
+    </section>
+</Layout>

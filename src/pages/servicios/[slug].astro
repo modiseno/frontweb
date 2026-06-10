@@ -1,0 +1,156 @@
+---
+export const prerender = true;
+import { Image } from "astro:assets";
+import type { Service } from "@/interfaces/services.interface";
+import type { GetStaticPaths } from "astro";
+import Layout from "@/layouts/Layout.astro";
+
+import Servicios from "@/data/servicios.json";
+
+import HeroMini from "@/components/ui/HeroMini.astro";
+import ServiceCard from "@/components/cards/ServiceCard.astro";
+import BTNWhatsapp from "@/components/botones/BTNWhatsapp.astro";
+
+export const getStaticPaths = (() => {
+    
+    return Servicios.map( ( servicio:Service ) => (
+        { 
+            params: { 
+                slug: servicio.slug
+            }, 
+            props: { 
+                name: servicio.name,
+                descript: servicio.description,
+                descImage: servicio.desc_img,
+                descGen: servicio.desc_general,
+                soluciones: servicio.soluciones,
+                beneficios: servicio.beneficios,
+                procesImage: servicio.proceso_img,
+                proceso: servicio.proceso,
+                bgImage: `/src/assets/${ servicio.feat_image }`,
+                transitionName: `${ servicio.name }-image`
+            }
+        }
+    ) );
+
+}) satisfies GetStaticPaths;
+
+const currentSlug = Astro.params.slug;
+const { name, descript, descImage, descGen, soluciones, beneficios, procesImage, proceso, bgImage, transitionName } = Astro.props;
+const servicioBySlug = Servicios.find(s => s.slug === Astro.params.slug);
+
+const displayName = name ?? servicioBySlug?.name ?? "";
+const displayDescript = descript ?? servicioBySlug?.description ?? "";
+
+const otherServices = Servicios.filter( s => s.slug !== currentSlug ).slice(0, 3);
+
+---
+<Layout
+    title={ name }
+    description={ descript }
+>
+    <HeroMini 
+        section="Servicios"
+        title={ displayName }
+        copy={ displayDescript }
+        cta="Quiero una asesoría"
+        bgImage={ bgImage }
+        transitionName={ transitionName }
+        textColor={ (currentSlug === "remodelaciones" || currentSlug === "diseno") ? "text-white" : "text-inherit" }
+    />
+    <section class="pt-24 pb-16 flex flex-col lg:flex-row gap-16 w-10/12 mx-auto">
+        <figure class="w-full lg:w-2/3 bg-gray-400 rounded-lg overflow-hidden">
+            <Image 
+                src={`/src/assets/${ descImage }`}
+                alt={`${ name } descripción`}
+                width={ 963 }
+                height={ 511 }
+                class="w-full h-full object-cover object-center"
+            />
+        </figure>
+        <div class="w-full lg:w-1/3 py-4">
+            {
+                descGen.map( ( desc: string ) => (
+                    <p class="text-xl font-light not-last:mb-4">{ desc }</p>
+                ) )
+            }
+        </div>
+    </section>
+    <section class="w-10/12 mx-auto pt-16 pb-16">
+        <h2 class="text-5xl font-bold text-[#555555] mb-8 w-1/2">Principales <strong class="text-black font-bold">soluciones</strong></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {
+                soluciones.map( ( sol: string ) => (
+                    <div class="bg-[#ebe6d2] rounded-lg p-8 flex flex-col items-center">
+                        <p class="text-xl font-light text-center">
+                            <Fragment set:html={ sol } />
+                        </p>
+                    </div>
+                ) )
+            }
+        </div>
+        <div class="flex justify-center pt-16">
+            <BTNWhatsapp anchor="Quiero una asesoría" />
+        </div>
+    </section>
+    <section class="flex flex-col lg:flex-row gap-8 w-10/12 mx-auto pt-16 pb-16">
+        <div class="w-full lg:w-1/4">
+            <h2 class="text-4xl font-bold text-[#555555] mb-8 w-1/2">Beneficios</h2>
+            <ul>
+                {
+                    beneficios.map( ( ben: string ) => (
+                        <li class="text-xl font-light mb-4 flex flex-row gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mt-1" width="1em" height="1em" viewBox="0 0 24 24">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path fill="currentColor" fill-rule="evenodd" d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18m-.232-5.36l5-6l-1.536-1.28l-4.3 5.159l-2.225-2.226l-1.414 1.414l3 3l.774.774z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="flex-1">{ ben }</span>
+                        </li>
+                    ) )
+                }
+            </ul>
+        </div>
+        <div class="w-full lg:w-3/4 flex flex-col lg:flex-row gap-8">
+            <figure class="w-full lg:w-1/3 bg-gray-400 rounded-lg overflow-hidden">
+                <Image 
+                    src={`/src/assets/${ procesImage }`}
+                    alt={`${ name } proceso`}
+                    width={ 800 }
+                    height={ 800 }
+                    class="w-full h-full object-cover object-center"
+                />
+            </figure>
+            <div class="w-full lg:w-2/3">
+                <h2 class="text-4xl font-bold text-[#555555] mb-8 w-1/2">Proceso</h2>
+                <ul class="grid grid-cols-2 gap-8">
+                    {
+                        proceso.map( ( pro: string ) => (
+                            <li class="text-lg md:text-xl font-light mb-4">
+                                <Fragment set:html={ pro } />
+                            </li>
+                        ) )
+                    }
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="w-full md:w-10/12 mx-auto flex flex-col lg:flex-row gap-8 px-4 md:px-0 pt-16 pb-24">
+        <div class="w-full lg:w-3/4">
+            <h2 class="text-5xl font-bold text-[#555555] mb-8">Más servicios</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {
+                    otherServices.map( service => (
+                        <ServiceCard servicio={ service } />
+                    ) )
+                }
+            </div>
+        </div>
+        <div class="w-full lg:w-1/4 bg-(--color-1) rounded-lg p-8 md:p-16 flex flex-col justify-center items-center">
+            <p class="text-2xl text-center font-medium mb-8">¿Necesitas ejecutar tu próximo proyecto con seguridad y cumplimiento?</p>
+            <BTNWhatsapp 
+                anchor="Quiero asesoría"
+                type="secondary"
+            />
+        </div>
+    </section>
+</Layout>
