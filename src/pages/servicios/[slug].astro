@@ -1,9 +1,11 @@
 ---
-export const prerender = true;
-import { Image } from "astro:assets";
 import type { Service } from "@/interfaces/services.interface";
 import type { GetStaticPaths } from "astro";
+export const prerender = true;
+import { Image } from "astro:assets";
+
 import Layout from "@/layouts/Layout.astro";
+import { resolveImage } from "@/utils/images";
 
 import Servicios from "@/data/servicios.json";
 
@@ -13,25 +15,28 @@ import BTNWhatsapp from "@/components/botones/BTNWhatsapp.astro";
 
 export const getStaticPaths = (() => {
     
-    return Servicios.map( ( servicio:Service ) => (
-        { 
+    return Servicios.map( ( servicio:Service ) => {
+        const resolvedDescImage = resolveImage(servicio.desc_img);
+        const resolvedProcesImage = resolveImage(servicio.proceso_img);
+        const resolvedBgImage = resolveImage(servicio.feat_image);
+        return { 
             params: { 
                 slug: servicio.slug
             }, 
             props: { 
                 name: servicio.name,
                 descript: servicio.description,
-                descImage: servicio.desc_img,
+                descImage: resolvedDescImage,
                 descGen: servicio.desc_general,
                 soluciones: servicio.soluciones,
                 beneficios: servicio.beneficios,
-                procesImage: servicio.proceso_img,
+                procesImage: resolvedProcesImage,
                 proceso: servicio.proceso,
-                bgImage: `/src/assets/${ servicio.feat_image }`,
+                bgImage: resolvedBgImage,
                 transitionName: `${ servicio.name }-image`
             }
-        }
-    ) );
+        };
+    } );
 
 }) satisfies GetStaticPaths;
 
@@ -61,7 +66,7 @@ const otherServices = Servicios.filter( s => s.slug !== currentSlug ).slice(0, 3
     <section class="pt-24 pb-16 flex flex-col lg:flex-row gap-16 w-10/12 mx-auto">
         <figure class="w-full lg:w-2/3 bg-gray-400 rounded-lg overflow-hidden">
             <Image 
-                src={`/src/assets/${ descImage }`}
+                src={ descImage }
                 alt={`${ name } descripción`}
                 width={ 963 }
                 height={ 511 }
@@ -113,7 +118,7 @@ const otherServices = Servicios.filter( s => s.slug !== currentSlug ).slice(0, 3
         <div class="w-full lg:w-3/4 flex flex-col lg:flex-row gap-8">
             <figure class="w-full lg:w-1/3 bg-gray-400 rounded-lg overflow-hidden">
                 <Image 
-                    src={`/src/assets/${ procesImage }`}
+                    src={ procesImage }
                     alt={`${ name } proceso`}
                     width={ 800 }
                     height={ 800 }

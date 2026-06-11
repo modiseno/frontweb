@@ -1,19 +1,21 @@
 ---
 import type { Experiencia } from '@/interfaces/experience.interface';
 import { Image } from 'astro:assets';
+import { resolveImage } from '@/utils/images';
 
 interface Props {
     obra: Experiencia;
 }
 
 const { obra } = Astro.props;
+const featImage = resolveImage(obra.feat_image);
 ---
 
 <article class="p-2 bg-(--color-2) aspect-square rounded-lg relative hover:-translate-y-1 hover:bg-gray-100 transition-all overflow-hidden group">
     <figure class="w-full h-full rounded-lg absolute top-0 left-0 z-0">
         <Image
             transition:name={ `${ obra.title }-image` }
-            src={`/src/assets/${ obra.feat_image }`}
+            src={ featImage }
             alt={ obra.title }
             width={ 600 }
             height={ 338 }

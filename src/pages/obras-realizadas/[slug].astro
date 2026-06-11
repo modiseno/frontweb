@@ -2,7 +2,9 @@
 export const prerender = true;
 
 import type { Experiencia } from "@/interfaces/experience.interface";
+import type { ImageMetadata } from "astro";
 import Layout from "@/layouts/Layout.astro";
+import { resolveImage } from "@/utils/images";
 
 import Exp from "@/data/experiencia.json";
 import HeroMini from "@/components/ui/HeroMini.astro";
@@ -33,7 +35,7 @@ export const getStaticPaths = (() => {
                 solucion: obra.solucion,
                 alcanceOb: obra.alcance.objetivo,
                 alcanceBul: obra.alcance.bullets,
-                ftImage: `/src/assets/${ obra.feat_image }`,
+                ftImage: resolveImage(obra.feat_image),
                 galeria: obra.gallery
             }
         }

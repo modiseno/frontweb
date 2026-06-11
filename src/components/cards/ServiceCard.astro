@@ -1,19 +1,21 @@
 ---
 import type { Service } from '@/interfaces/services.interface';
 import { Image } from 'astro:assets';
+import { resolveImage } from '@/utils/images';
 
 interface Props {
     servicio: Service;
 }
 
 const { servicio } = Astro.props;
+const featImage = resolveImage(servicio.feat_image);
 ---
 
 <article class="border border-gray-200 p-2 bg-white rounded-lg relative hover:-translate-y-1 hover:bg-gray-100 transition-all">
     <figure class="w-full aspect-video bg-gray-400 rounded-lg mb-4 overflow-hidden">
         <Image
             transition:name={ `${ servicio.name }-image` }
-            src={`/src/assets/${ servicio.feat_image }`}
+            src={ featImage }
             alt={ servicio.name }
             width={ 600 }
             height={ 338 }
