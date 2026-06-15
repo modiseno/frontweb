@@ -9,8 +9,9 @@ const { endpoint = "/api/contact", class: className } = Astro.props;
 
 <form
     method="POST"
-    action={endpoint}
+    action="#"
     class:list={["grid grid-cols-1 md:grid-cols-2 gap-8 w-full", className]}
+    id="contact-form"
 >
     <input
         type="text"
@@ -49,7 +50,48 @@ const { endpoint = "/api/contact", class: className } = Astro.props;
     <button
         type="submit"
         class="btn bg-(--color-1) text-xl md:col-span-2 cursor-pointer"
+        id="contact-submit"
     >
         Enviar solicitud de asesoría técnica
     </button>
 </form>
+
+<script>
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    const submitBtn = document.getElementById("contact-submit") as HTMLButtonElement | null;
+    const API_URL = "/api/contact";
+
+    if ( !form || !submitBtn ) {
+        return;
+    }
+
+    form.addEventListener( "submit", async ( e ) => {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando...";
+
+        const formData = new FormData( form );
+
+        try {
+            const res = await fetch( API_URL, {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await res.json();
+
+            if ( data.success ) {
+                form.reset();
+                alert( data.message );
+            } else {
+                alert( data.message || "Error al enviar el mensaje." );
+            }
+        } catch {
+            alert( "Error de conexión. Intenta de nuevo." );
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Enviar solicitud de asesoría técnica";
+        }
+    });
+</script>

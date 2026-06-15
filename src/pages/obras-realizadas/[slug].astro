@@ -2,9 +2,9 @@
 export const prerender = true;
 
 import type { Experiencia } from "@/interfaces/experience.interface";
-import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
-import { resolveImage } from "@/utils/images";
+import { resolveImage, resolveGalleryImage } from "@/utils/images";
 
 import Exp from "@/data/experiencia.json";
 import HeroMini from "@/components/ui/HeroMini.astro";
@@ -13,8 +13,10 @@ import Galeria from "@/components/ui/Galeria.astro";
 
 export const getStaticPaths = (() => {
 
-    return Exp.map( ( obra: Experiencia ) => (
-        {
+    return Exp.map( ( obra: Experiencia ) => {
+        const resolvedObjImage = `${ obra.slug }/${ obra.objetivo_img }`;
+        const resolvedSolucionImg = `${ obra.slug }/${ obra.solucion_img }`;
+        return {
             params: {
                 slug: obra.slug
             },
@@ -28,18 +30,20 @@ export const getStaticPaths = (() => {
                 duracion: obra.duracion,
                 lugar: obra.lugar,
                 ciudad: obra.ciudad,
+                objImg: resolveGalleryImage( resolvedObjImage )!,
                 objetivo: obra.objetivo,
                 problema: obra.problema,
                 condiciones: obra.condiciones,
                 enfoque: obra.enfoque,
+                solucionImg: resolveGalleryImage( resolvedSolucionImg )!,
                 solucion: obra.solucion,
                 alcanceOb: obra.alcance.objetivo,
                 alcanceBul: obra.alcance.bullets,
-                ftImage: resolveImage(obra.feat_image),
+                ftImage: resolveImage( obra.feat_image )!,
                 galeria: obra.gallery
             }
         }
-    ) );
+    } );
 
 })
 
@@ -53,11 +57,13 @@ const {
     area, 
     duracion, 
     lugar, 
-    ciudad, 
+    ciudad,
+    objImg, 
     objetivo, 
     problema, 
     condiciones, 
-    enfoque, 
+    enfoque,
+    solucionImg, 
     solucion,
     alcanceOb,
     alcanceBul,
@@ -70,7 +76,7 @@ const currentObra = Exp.find( ( obra: Experiencia ) => obra.slug !== slug );
 const ImagesGallery = galeria.map( img => `${ slug }/${ img }` );
 ---
 <Layout
-    title=""
+    title={ title }
     description=""
 >
     <HeroMini 
@@ -82,36 +88,48 @@ const ImagesGallery = galeria.map( img => `${ slug }/${ img }` );
         transitionName={ `${ title }-image` }
         colorLayer
     />
-    <section class="pt-24 pb-16 flex flex-row gap-16 w-10/12 mx-auto">
-        <div class="w-1/3">
+    <section class="pt-24 pb-16 flex flex-col lg:flex-row gap-16 w-10/12 mx-auto">
+        <div class="w-full lg:w-1/3">
             <div class="grid grid-cols-2 gap-4 pb-4">
-                <p class="text-xl bg-gray-100 p-4 rounded-lg font-light text-center"><strong class="block">Cliente:</strong>{ cliente }</p>
-                <p class="text-xl bg-gray-100 p-4 rounded-lg font-light text-center"><strong class="block">Ciudad:</strong>{ ciudad }</p>
+                <p class="text-lg md:text-xl bg-gray-100 p-4 rounded-lg font-light text-center"><strong class="block">Cliente:</strong>{ cliente }</p>
+                <p class="text-lg md:text-xl bg-gray-100 p-4 rounded-lg font-light text-center"><strong class="block">Ciudad:</strong>{ ciudad }</p>
             </div>
             <div class="grid grid-cols-3 gap-4 pb-8">
-                <p class="text-xl bg-gray-100 p-4 rounded-lg font-light text-center"><strong class="block">Año</strong>{ anio }</p>
-                <p class="text-xl bg-gray-100 p-4 rounded-lg font-light text-center"><strong class="block">Área</strong>{ area } m<sup>2</sup></p>
-                <p class="text-xl bg-gray-100 p-4 rounded-lg font-light text-center"><strong class="block">Duración</strong>{ duracion }</p>
+                <p class="text-lg md:text-xl bg-gray-100 p-4 rounded-lg font-light text-center"><strong class="block">Año</strong>{ anio }</p>
+                <p class="text-lg md:text-xl bg-gray-100 p-4 rounded-lg font-light text-center"><strong class="block">Área</strong>{ area } m<sup>2</sup></p>
+                <p class="text-lg md:text-xl bg-gray-100 p-4 rounded-lg font-light text-center"><strong class="block">Duración</strong>{ duracion }</p>
             </div>
             <p class="text-xl font-light mb-4"><strong class="block">Problema a resolver</strong>{ problema }</p>
             <p class="text-xl font-light"><strong class="block">Condiciones especiales</strong>{ condiciones }</p>
         </div>
-        <div class="w-2/3 flex flex-row gap-16">
-            <figure class="w-1/2 rounded-lg bg-gray-400">
-
+        <div class="w-full lg:w-2/3 flex flex-col lg:flex-row gap-16">
+            <figure class="w-full lg:w-1/2 rounded-lg bg-gray-400 overflow-hidden">
+                <Image 
+                    src={ objImg }
+                    alt={`${ title } objetivo`}
+                    width={ 450 }
+                    height={ 492 }
+                    class="w-full h-full object-cover"
+                />
             </figure>
-            <div class="w-1/2">
+            <div class="w-full lg:w-1/2">
                 <h3 class="text-3xl font-bold text-[#555555] mb-8">Objetivo</h3>
                 <p class="text-xl font-light mb-4">{ enfoque }</p>
                 <p class="text-xl font-light">{ objetivo }</p>
             </div>
         </div>
     </section>
-    <section class="flex flex-row gap-8 w-10/12 mx-auto pt-16 pb-16">
-        <figure class="w-1/2 rounded-lg bg-gray-300">
-
+    <section class="flex flex-col lg:flex-row gap-8 w-10/12 mx-auto pt-16 pb-16">
+        <figure class="w-full lg:w-1/2 rounded-lg bg-gray-300 overflow-hidden">
+            <Image 
+                    src={ solucionImg }
+                    alt={`${ title } solución`}
+                    width={ 450 }
+                    height={ 492 }
+                    class="w-full h-full object-cover"
+                />
         </figure>
-        <div class="w-1/2">
+        <div class="w-full lg:w-1/2">
             <h2 class="text-5xl font-bold text-[#555555] mb-8">Solución</h2>
             {
                 solucion.map( ( sol: string ) => (
@@ -123,12 +141,12 @@ const ImagesGallery = galeria.map( img => `${ slug }/${ img }` );
             />
         </div>
     </section>
-    <section class="flex flex-row gap-8 w-10/12 mx-auto pt-16 pb-16">
-        <div class="w-2/3">
+    <section class="flex flex-col lg:flex-row gap-8 w-10/12 mx-auto pt-16 pb-16">
+        <div class="w-full lg:w-2/3">
             <h2 class="text-5xl font-bold text-[#555555] mb-8">Alcance</h2>
-            <div class="flex flex-row gap-16">
-                <p class="w-1/2 text-xl font-light">{ alcanceOb }</p>
-                <ul class="w-1/2 list-disc space-y-2">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <p class="w-full lg:w-1/2 text-xl font-light">{ alcanceOb }</p>
+                <ul class="w-full lg:w-1/2 list-disc space-y-2">
                     {
                         alcanceBul.map( bul => (
                             <li class="text-xl font-light">{ bul }</li>
@@ -137,7 +155,7 @@ const ImagesGallery = galeria.map( img => `${ slug }/${ img }` );
                 </ul>
             </div>
         </div>
-        <div class="w-1/3 bg-(--color-1) rounded-lg p-16 flex flex-col justify-center items-center">
+        <div class="w-full lg:w-1/3 bg-(--color-1) rounded-lg p-8 lg:p-16 flex flex-col justify-center items-center">
             <p class="text-2xl text-center font-medium mb-8">¿Necesitas ejecutar tu próximo proyecto con seguridad y cumplimiento?</p>
             <BTNWhatsapp 
                 anchor="Quiero una asesoría"
@@ -145,9 +163,9 @@ const ImagesGallery = galeria.map( img => `${ slug }/${ img }` );
             />
         </div>
     </section>
-    <section class="w-10/12 mx-auto pt-16 pb-24 ">
+    <section class="w-full lg:w-10/12 mx-auto pt-16 pb-24 ">
         <h2 class=""></h2>
-        <div>
+        <div class="px-4 md:px-8 lg:px-0">
             <Galeria 
                 imagenes={ ImagesGallery }
             />

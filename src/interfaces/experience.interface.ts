@@ -11,10 +11,12 @@ export interface Experiencia {
     ciudad: string;
     area: number;
     duracion: string,
+    objetivo_img: string;
     objetivo: string;
     problema: string;
     condiciones: string;
     enfoque: string;
+    solucion_img: string;
     solucion: string[];
     alcance: Alcance;
     feat_image: string;

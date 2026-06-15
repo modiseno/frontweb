@@ -1,25 +1,25 @@
 ---
+import type { Service } from '@/interfaces/services.interface';
+import type { Experiencia } from '@/interfaces/experience.interface';
 import { Image } from 'astro:assets';
 export const prerender = true;
 
-import type { Service } from '@/interfaces/services.interface';
 import { resolveImage } from '@/utils/images';
-import BTNWhatsapp from '@/components/botones/BTNWhatsapp.astro';
-import LogoMarquee from '@/components/ui/LogoMarquee.astro';
+
 import Layout from '@/layouts/Layout.astro';
 
+import BTNWhatsapp from '@/components/botones/BTNWhatsapp.astro';
+import LogoMarquee from '@/components/ui/LogoMarquee.astro';
+import HeroPicture from '@/components/ui/HeroPicture.astro';
 import BTN from '@/components/botones/BTN.astro';
 
 import Services from "@/data/servicios.json";
 import Experience from "@/data/experiencia.json";
-import type { Experiencia } from '@/interfaces/experience.interface';
 
 import HeroDesktop from '@/assets/expertos-construccion-diseno-mantenimiento.jpg';
 import HeroMobile from '@/assets/expertos-construccion-diseno-mantenimiento-mobile.jpg';
 import PanelSolar from '@/assets/instalacion-paneles-solares.jpg';
-
-import HeroPicture from '@/components/ui/HeroPicture.astro';
-
+import CTAImage from '@/assets/te-asesoramos.png';
 ---
 
 <Layout 
@@ -241,9 +241,9 @@ import HeroPicture from '@/components/ui/HeroPicture.astro';
             </div>
         </div>
     </section>
-    <section class="bg-[#dde8d8] py-51">
-        <div class="w-10/12 mx-auto flex flex-row gap-8">
-            <div class="w-1/2">
+    <section class="bg-[#dde8d8]">
+        <div class="w-10/12 mx-auto flex flex-col lg:flex-row gap-8">
+            <div class="w-full lg:w-1/2 flex flex-col justify-center pt-24 lg:pt-0">
                 <p class="text-2xl font-light uppercase">¿Tienes un proyecto en marcha?</p>
                 <p class="text-4xl font-bold mb-4">¡Conversemos!</p>
                 <p class="text-2xl font-light mb-8">Nuestro equipo técnico puede asesorarte en diseño, construcción o mantenimiento de tu infraestructura.</p>
@@ -251,8 +251,13 @@ import HeroPicture from '@/components/ui/HeroPicture.astro';
                     anchor="Quiero una asesoría"
                 />
             </div>
-            <div class="w-1/2 bg-gray-300">
-
+            <div class="w-full lg:w-1/2 pt-8">
+                <Image
+                    alt="MO diseño y arquitectura"
+                    src={ CTAImage }
+                    width={ 591 }
+                    height={ 600 }
+                />
             </div>
         </div>
     </section>
