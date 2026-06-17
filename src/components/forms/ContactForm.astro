@@ -7,89 +7,180 @@ interface Props {
 const { endpoint = "/api/contact", class: className } = Astro.props;
 ---
 
-<form
-    method="POST"
-    action="#"
-    class:list={["grid grid-cols-1 md:grid-cols-2 gap-8 w-full", className]}
-    id="contact-form"
->
-    <input
-        type="text"
-        name="nombre"
-        placeholder="Nombre"
-        required
-        class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full md:col-span-1"
-    />
-    <input
-        type="text"
-        name="apellido"
-        placeholder="Apellido"
-        required
-        class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full md:col-span-1"
-    />
-    <input
-        type="tel"
-        name="telefono"
-        placeholder="Teléfono"
-        required
-        class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full"
-    />
-    <input
-        type="email"
-        name="email"
-        placeholder="Correo electrónico"
-        required
-        class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full"
-    />
-    <textarea
-        name="mensaje"
-        placeholder="Mensaje"
-        required
-        class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full min-h-35 md:col-span-2"
-    ></textarea>
-    <button
-        type="submit"
-        class="btn bg-(--color-1) text-xl md:col-span-2 cursor-pointer"
-        id="contact-submit"
+<div class="relative p-4" id="contact-form-wrapper">
+    <form
+        method="POST"
+        action="#"
+        class:list={["grid grid-cols-1 md:grid-cols-2 gap-8 w-full", className]}
+        id="contact-form"
     >
-        Enviar solicitud de asesoría técnica
-    </button>
-</form>
+        <input
+            type="text"
+            name="nombre"
+            placeholder="Nombre"
+            required
+            class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full md:col-span-1"
+        />
+        <input
+            type="text"
+            name="apellido"
+            placeholder="Apellido"
+            required
+            class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full md:col-span-1"
+        />
+        <input
+            type="tel"
+            name="telefono"
+            placeholder="Teléfono"
+            required
+            class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full"
+        />
+        <input
+            type="email"
+            name="email"
+            placeholder="Correo electrónico"
+            required
+            class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full"
+        />
+        <textarea
+            name="mensaje"
+            placeholder="Mensaje"
+            required
+            class="bg-(--color-2) p-4 rounded-lg text-lg font-light w-full min-h-35 md:col-span-2"
+        ></textarea>
+        <button
+            type="submit"
+            class="btn bg-(--color-1) text-xl md:col-span-2 cursor-pointer"
+            id="contact-submit"
+        >
+            Enviar solicitud de asesoría técnica
+        </button>
+    </form>
+
+    <div id="lightbox" class="lightbox hidden">
+        <div id="lightbox-content" class="lightbox-content">
+            <span class="loader"></span>
+            <p id="lightbox-message" class="lightbox-message"></p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .lightbox {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+        border-radius: inherit;
+    }
+    .lightbox.hidden {
+        display: none;
+    }
+    .lightbox-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .lightbox-message {
+        color: #fff;
+        font-size: 1.25rem;
+        text-align: center;
+    }
+    .loader {
+        width: 48px;
+        height: 48px;
+        display: inline-block;
+        position: relative;
+    }
+    .loader::after,
+    .loader::before {
+        content: '';
+        box-sizing: border-box;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 2px solid #FFF;
+        position: absolute;
+        left: 0;
+        top: 0;
+        animation: animloader 2s linear infinite;
+    }
+    .loader::after {
+        animation-delay: 1s;
+    }
+    @keyframes animloader {
+        0% {
+            transform: scale(0);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 0;
+        }
+    }
+</style>
 
 <script>
     const form = document.getElementById("contact-form") as HTMLFormElement | null;
     const submitBtn = document.getElementById("contact-submit") as HTMLButtonElement | null;
+    const lightbox = document.getElementById("lightbox") as HTMLElement | null;
+    const lightboxMessage = document.getElementById("lightbox-message") as HTMLElement | null;
+    const loader = lightbox?.querySelector(".loader") as HTMLElement | null;
     const API_URL = "/api/contact";
 
-    if ( form && submitBtn ) {
-        form.addEventListener( "submit", async ( e ) => {
-        e.preventDefault();
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Enviando...";
-
-        const formData = new FormData( form );
-
-        try {
-            const res = await fetch( API_URL, {
-                method: "POST",
-                body: formData,
-            });
-
-            const data = await res.json();
-
-            if ( data.success ) {
-                form.reset();
-                alert( data.message );
-            } else {
-                alert( data.message || "Error al enviar el mensaje." );
-            }
-        } catch {
-            alert( "Error de conexión. Intenta de nuevo." );
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Enviar solicitud de asesoría técnica";
+    function showLightbox(spinner: boolean, message: string = "") {
+        if (!lightbox || !lightboxMessage || !loader) return;
+        lightbox.classList.remove("hidden");
+        if (spinner) {
+            loader.style.display = "inline-block";
+            lightboxMessage.style.display = "none";
+        } else {
+            loader.style.display = "none";
+            lightboxMessage.style.display = "block";
+            lightboxMessage.textContent = message;
         }
-    });
+    }
+
+    function hideLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.add("hidden");
+    }
+
+    if ( form && submitBtn && lightbox && lightboxMessage && loader ) {
+        form.addEventListener( "submit", async ( e ) => {
+            e.preventDefault();
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Enviando...";
+
+            const formData = new FormData( form );
+            showLightbox(true);
+
+            try {
+                const res = await fetch( API_URL, {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const data = await res.json();
+
+                if ( data.success ) {
+                    form.reset();
+                    showLightbox(false, data.message);
+                    setTimeout(hideLightbox, 3000);
+                } else {
+                    showLightbox(false, data.message || "Error al enviar el mensaje.");
+                }
+            } catch {
+                showLightbox(false, "Error de conexión. Intenta de nuevo.");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Enviar solicitud de asesoría técnica";
+            }
+        });
     }
 </script>
