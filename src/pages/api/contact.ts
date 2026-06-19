@@ -39,9 +39,9 @@ export const POST: APIRoute = async ({ request }) => {
         `;
 
         await transporter.sendMail({
-            from: import.meta.env.SMTP_USER,
+            from: `"MO WEB" <${ import.meta.env.SMTP_USER }>`,
             to: import.meta.env.CONTACT_EMAIL,
-            subject: `Nueva solicitud de asesoría - ${nombre} ${apellido}`,
+            subject: `Nueva solicitud de asesoría - ${ nombre } ${ apellido }`,
             html: htmlBody,
             replyTo: email,
         });
@@ -51,7 +51,7 @@ export const POST: APIRoute = async ({ request }) => {
             { status: 200, headers: { "Content-Type": "application/json" } }
         );
     } catch (error) {
-        console.error("Error al enviar el correo:", error);
+        console.error( "Error al enviar el correo:", error );
         return new Response(
             JSON.stringify({ success: false, message: "Error al enviar el mensaje. Intenta de nuevo." }),
             { status: 500, headers: { "Content-Type": "application/json" } }
