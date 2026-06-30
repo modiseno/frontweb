@@ -1,0 +1,31 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import HeroMini from "@/components/ui/HeroMini.astro";
+import Faq from "@/components/faqs/faq.astro";
+
+import FaqsData from "@/data/faqs.json";
+import heroBg from "@/assets/mo-diseno-arquitectura-faqs.jpg";
+---
+<Layout
+    title="Preguntas frecuentes"
+    description="Preguntas frecuentes sobre el proyecto y su funcionamiento"
+>
+    <HeroMini 
+        section="Preguntas frecuentes"
+        title="¿Tienes alguna duda sobre nuestro proyecto?"
+        copy="Aquí encontrarás respuestas a las preguntas más frecuentes sobre nuestro proyecto y su funcionamiento. Si no encuentras la respuesta que buscas, no dudes en contactarnos."
+        cta="Quiero asesoría"
+        bgImage={ heroBg.src }
+    />
+
+    <div class="py-24 px-8 md:px-0 w-full md:w-10/12 lg:w-8/12 mx-auto">
+        {
+            FaqsData.map( faq => (
+                <Faq 
+                    question={faq.question}
+                    answer={faq.answer}
+                />
+            ) )
+        }
+    </div>
+</Layout>

@@ -28,5 +28,11 @@ export default defineConfig({
         weights: ["300", "400", "500", "600", "700"],
         styles: ["normal", "italic"],
         subsets: ["latin"]
-    }]
+    }],
+    redirects: {
+        '/servicios/diseno-y-publicidad/': {
+            destination: '/servicios',
+            status: 301
+        }
+    }
 });

@@ -1,0 +1,152 @@
+[
+    {
+        "id": 1,
+        "question": "¿Qué servicios ofrecen?",
+        "answer": "Ofrecemos diseño, adecuación, remodelación y mantenimiento de espacios comerciales, corporativos e institucionales, así como remodelaciones residenciales, instalación de sistemas de energía solar y gestión integral de proyectos.",
+        "category": "generales"
+    },
+    {
+        "id": 2,
+        "question": "¿En qué ciudades trabajan?",
+        "answer": "Atendemos proyectos en diferentes ciudades del país. Dependiendo de la ubicación y el alcance del proyecto, evaluamos la viabilidad técnica y logística para prestar el servicio.",
+        "category": "generales"
+    },
+    {
+        "id": 3,
+        "question": "¿Realizan proyectos llave en mano?",
+        "answer": "Sí. Podemos encargarnos de todo el proceso, desde el diseño y la planeación hasta la ejecución, supervisión, entrega y mantenimiento posterior.",
+        "category": "generales"
+    },
+    {
+        "id": 4,
+        "question": "¿Trabajan con clientes particulares y empresas?",
+        "answer": "Sí. Desarrollamos proyectos para hogares, empresas, oficinas, locales comerciales, restaurantes, edificios, instituciones educativas e industrias.",
+        "category": "generales"
+    },
+    {
+        "id": 5,
+        "question": "¿Cómo solicito una cotización?",
+        "answer": "Puede contactarnos a través del formulario web, WhatsApp, correo electrónico o llamada telefónica. Analizamos sus necesidades y programamos una visita técnica si es necesario.",
+        "category": "generales"
+    },
+    {
+        "id": 6,
+        "question": "¿Realizan diseños antes de iniciar la obra?",
+        "answer": "Sí. Dependiendo del proyecto, desarrollamos propuestas arquitectónicas, planos, renders y especificaciones técnicas para visualizar el resultado antes de la ejecución.",
+        "category": "remodelaciones"
+    },
+    {
+        "id": 7,
+        "question": "¿Cuánto tiempo tarda una remodelación?",
+        "answer": "El tiempo depende del alcance, área de intervención y complejidad. Los proyectos pequeños pueden tomar algunas semanas, mientras que remodelaciones integrales pueden requerir varios meses.",
+        "category": "remodelaciones"
+    },
+    {
+        "id": 8,
+        "question": "¿Puedo seguir utilizando mi local o vivienda durante la obra?",
+        "answer": "En muchos casos sí. Diseñamos planes de trabajo por etapas para minimizar las interrupciones de la operación comercial o la habitabilidad del inmueble.",
+        "category": "remodelaciones"
+    },
+    {
+        "id": 9,
+        "question": "¿Se encargan de los permisos necesarios?",
+        "answer": "Sí. Podemos apoyar la gestión de permisos, licencias y trámites requeridos según el tipo de proyecto.",
+        "category": "remodelaciones"
+    },
+    {
+        "id": 10,
+        "question": "¿Ofrecen garantía sobre los trabajos realizados?",
+        "answer": "Sí. Todos nuestros proyectos cuentan con garantía sobre mano de obra y materiales según el alcance contratado.",
+        "category": "remodelaciones"
+    },
+    {
+        "id": 11,
+        "question": "¿Qué tipos de mantenimiento ofrecen?",
+        "answer": "Realizamos mantenimiento preventivo, correctivo y predictivo para instalaciones comerciales, corporativas, residenciales e industriales.",
+        "category": "mantenimiento"
+    },
+    {
+        "id": 12,
+        "question": "¿Ofrecen contratos de mantenimiento?",
+        "answer": "Sí. Diseñamos planes de mantenimiento periódicos adaptados a las necesidades de cada cliente.",
+        "category": "mantenimiento"
+    },
+    {
+        "id": 13,
+        "question": "¿Atienden emergencias?",
+        "answer": "Sí. Dependiendo de la ubicación y disponibilidad, ofrecemos atención para incidentes que requieran intervención rápida.",
+        "category": "mantenimiento"
+    },
+    {
+        "id": 14,
+        "question": "¿Pueden realizar mantenimiento fuera del horario laboral?",
+        "answer": "Sí. Para minimizar el impacto en la operación de nuestros clientes, programamos actividades nocturnas o en horarios especiales cuando sea necesario.",
+        "category": "mantenimiento"
+    },
+    {
+        "id": 15,
+        "question": "¿Cómo sé si mi propiedad es apta para energía solar?",
+        "answer": "Realizamos una evaluación técnica considerando ubicación, orientación, sombras, consumo energético y espacio disponible para determinar la viabilidad del sistema.",
+        "category": "energia-solar"
+    },
+    {
+        "id": 16,
+        "question": "¿Cuánto puedo ahorrar con un sistema solar?",
+        "answer": "El ahorro depende del consumo de energía, el tamaño del sistema y las condiciones de instalación. En muchos casos, los usuarios logran reducciones significativas en su factura eléctrica.",
+        "category": "energia-solar"
+    },
+    {
+        "id": 17,
+        "question": "¿Cuánto dura una instalación solar?",
+        "answer": "Los paneles solares suelen tener una vida útil superior a 25 años y los inversores entre 10 y 15 años, dependiendo de la tecnología utilizada.",
+        "category": "energia-solar"
+    },
+    {
+        "id": 18,
+        "question": "¿Cuánto tiempo tarda la instalación?",
+        "answer": "La mayoría de los sistemas comerciales y residenciales pueden instalarse en pocos días, una vez completados los diseños y aprobaciones necesarias.",
+        "category": "energia-solar"
+    },
+    {
+        "id": 19,
+        "question": "¿Realizan mantenimiento de sistemas solares?",
+        "answer": "Sí. Ofrecemos monitoreo, limpieza, inspección y mantenimiento preventivo y correctivo de sistemas fotovoltaicos.",
+        "category": "energia-solar"
+    },
+    {
+        "id": 20,
+        "question": "¿Gestionan trámites con la empresa de energía?",
+        "answer": "Sí. Podemos acompañar al cliente en los procesos de legalización e interconexión requeridos por la normatividad vigente.",
+        "category": "energia-solar"
+    },
+    {
+        "id": 21,
+        "question": "¿La visita técnica tiene costo?",
+        "answer": "Dependiendo de la ubicación y el tipo de proyecto, la visita puede ser gratuita o descontarse posteriormente del valor contratado.",
+        "category": "contratacion"
+    },
+    {
+        "id": 22,
+        "question": "¿Cómo se realiza el pago de los proyectos?",
+        "answer": "Generalmente trabajamos con anticipos y pagos por hitos o avances de obra previamente establecidos en el contrato.",
+        "category": "contratacion"
+    },
+    {
+        "id": 23,
+        "question": "¿Qué incluye la cotización?",
+        "answer": "Incluye el alcance definido, materiales, mano de obra, tiempos estimados, garantías y condiciones comerciales.",
+        "category": "contratacion"
+    },
+    {
+        "id": 24,
+        "question": "¿Pueden ajustarse a un presupuesto específico?",
+        "answer": "Sí. Analizamos las necesidades del cliente y proponemos alternativas técnicas y constructivas que optimicen la inversión sin comprometer la calidad.",
+        "category": "contratacion"
+    },
+    {
+        "id": 25,
+        "question": "¿Por qué elegirnos?",
+        "answer": "Porque integramos diseño, construcción, mantenimiento y soluciones energéticas en un solo aliado estratégico, garantizando calidad, cumplimiento, seguridad y acompañamiento durante todo el proyecto.",
+        "category": "contratacion"
+    }
+]
